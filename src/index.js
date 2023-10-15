@@ -1,7 +1,10 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
 import "./index.css";
-import ParentComponent from "./ParentComponent";
+import App from "./AppFunctional";
+// для переключения c классовой реализации компонента
+// на функциональную - поменять адресс импорта App с "./AppClass"
+// на "./AppFunctional";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
-root.render(<ParentComponent />);
+root.render(<App />);
