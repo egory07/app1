@@ -1,7 +1,7 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
 import "./index.css";
-import App from "./AppFunctional";
+import App from "./AppClass";
 // для переключения c классовой реализации компонента
 // на функциональную - поменять адресс импорта App с "./AppClass"
 // на "./AppFunctional";

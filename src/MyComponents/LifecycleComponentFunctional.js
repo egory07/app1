@@ -1,9 +1,7 @@
-//memo реализовать
 import React, { useState, useEffect, useRef, memo } from "react";
 
 const LifecycleComponentFunctional = memo(
-  () => {
-    let [count, setCount] = useState(0);
+  ({ count }) => {
     const didMountRef = useRef(false);
 
     useEffect(() => {
@@ -17,23 +15,17 @@ const LifecycleComponentFunctional = memo(
     useEffect(() => {
       if (didMountRef.current) {
         console.log("component did update");
-        console.log(count);
       } else didMountRef.current = true;
     });
-
-    let increaseCount = () => {
-      setCount(count + 1);
-    };
 
     return (
       <>
         <h1>LifecycleComponent</h1>
-        <button onClick={increaseCount}>Increase</button>
       </>
     );
   },
-  () => {
-    return true;
+  (oldProps, newProps) => {
+    return newProps.count % 2 !== 0;
   }
 );
 

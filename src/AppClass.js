@@ -6,6 +6,7 @@ export default class AppClass extends React.Component {
     super();
     this.state = {
       showLifecycleComponent: true,
+      count: 0,
     };
   }
 
@@ -13,10 +14,20 @@ export default class AppClass extends React.Component {
     this.setState({ showLifecycleComponent: false });
   };
 
+  increaseCount = () => {
+    this.setState({ count: ++this.state.count }); //консоль: dont mutate state directly. Use setState. Так должно быть или есть другое решение?
+  };
+  componentDidUpdate() {
+    console.log(this.state.count);
+  }
   render() {
     return (
       <>
-        {this.state.showLifecycleComponent && <LifecycleComponent />}
+        {this.state.showLifecycleComponent && (
+          <LifecycleComponent count={this.state.count} />
+        )}
+
+        <button onClick={this.increaseCount}>Increase</button>
         <button onClick={this.delete}>Delete</button>
       </>
     );
