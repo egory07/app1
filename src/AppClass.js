@@ -15,8 +15,16 @@ export default class AppClass extends React.Component {
   };
 
   increaseCount = () => {
-    this.setState({ count: ++this.state.count }); //консоль: dont mutate state directly. Use setState. Так должно быть или есть другое решение?
+    this.setState((prevState) => {
+      return {
+        ...prevState,
+        count: ++prevState.count,
+      };
+    });
+
+    //({ count: ++this.state.count }); //консоль: dont mutate state directly. Use setState. Так должно быть или есть другое решение?
   };
+
   componentDidUpdate() {
     console.log(this.state.count);
   }

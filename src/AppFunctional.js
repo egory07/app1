@@ -2,8 +2,8 @@ import React, { useState, useEffect } from "react";
 import LifecycleComponentFunctional from "./MyComponents/LifecycleComponentFunctional";
 
 const AppFunctional = () => {
-  let [show, setShow] = useState(true);
-  let [count, setCount] = useState(0);
+  const [show, setShow] = useState(true);
+  const [count, setCount] = useState(0);
 
   useEffect(() => {
     console.log(count);
